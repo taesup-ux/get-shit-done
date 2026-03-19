@@ -17,8 +17,9 @@ const VALID_CONFIG_KEYS = new Set([
   'workflow.research', 'workflow.plan_check', 'workflow.verifier',
   'workflow.nyquist_validation', 'workflow.ui_phase', 'workflow.ui_safety_gate',
   'workflow.auto_advance', 'workflow.node_repair', 'workflow.node_repair_budget',
+  'workflow.text_mode',
   'workflow._auto_chain_active',
-  'git.branching_strategy', 'git.phase_branch_template', 'git.milestone_branch_template',
+  'git.branching_strategy', 'git.phase_branch_template', 'git.milestone_branch_template', 'git.quick_branch_template',
   'planning.commit_docs', 'planning.search_gitignored',
   'hooks.context_warnings',
 ]);
@@ -88,6 +89,7 @@ function buildNewProjectConfig(userChoices) {
       branching_strategy: 'none',
       phase_branch_template: 'gsd/phase-{phase}-{slug}',
       milestone_branch_template: 'gsd/{milestone}-{slug}',
+      quick_branch_template: null,
     },
     workflow: {
       research: true,
@@ -99,6 +101,7 @@ function buildNewProjectConfig(userChoices) {
       node_repair_budget: 2,
       ui_phase: true,
       ui_safety_gate: true,
+      text_mode: false,
     },
     hooks: {
       context_warnings: true,
