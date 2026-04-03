@@ -714,8 +714,15 @@ function clearActiveWorkstreamPointer(filePath, cleanupDirPath) {
 
   // Session-scoped pointers for a repo share one tmp directory. Only remove it
   // when it is empty so clearing or self-healing one session never deletes siblings.
+  // Explicitly check remaining entries rather than relying on rmdirSync throwing
+  // ENOTEMPTY — that error is not raised reliably on Windows.
   if (cleanupDirPath) {
-    try { fs.rmdirSync(cleanupDirPath); } catch {}
+    try {
+      const remaining = fs.readdirSync(cleanupDirPath);
+      if (remaining.length === 0) {
+        fs.rmdirSync(cleanupDirPath);
+      }
+    } catch {}
   }
 }
 
