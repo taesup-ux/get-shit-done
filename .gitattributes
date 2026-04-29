@@ -1,0 +1,29 @@
+# Encoding guard: enforce UTF-8 (no BOM) for all text files.
+# Prevents PowerShell-default UTF-16 / CP949 leakage.
+
+* text=auto eol=lf
+
+*.md      text working-tree-encoding=UTF-8 eol=lf
+*.json    text working-tree-encoding=UTF-8 eol=lf
+*.yaml    text working-tree-encoding=UTF-8 eol=lf
+*.yml     text working-tree-encoding=UTF-8 eol=lf
+*.toml    text working-tree-encoding=UTF-8 eol=lf
+*.py      text working-tree-encoding=UTF-8 eol=lf
+*.sh      text working-tree-encoding=UTF-8 eol=lf
+*.canvas  text working-tree-encoding=UTF-8 eol=lf
+*.txt     text working-tree-encoding=UTF-8 eol=lf
+*.csv     text working-tree-encoding=UTF-8 eol=lf
+
+# Binary types — never touch
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.pdf     binary
+*.zip     binary
+*.docx    binary
+*.xlsx    binary
+*.pptx    binary
+*.mp4     binary
+*.mov     binary
+*.mp3     binary
